@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <circle cx="24" cy="24" r="23.25" fill="#0c0b09" stroke="#d9b45a" stroke-width="1.5"/>
+  <circle cx="24" cy="24" r="19.75" fill="none" stroke="#d9b45a" stroke-opacity="0.4" stroke-width="0.75"/>
+  <path d="M24 6.6l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9z" fill="#d9b45a"/>
+  <text x="24" y="34.2" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-weight="600" font-size="25" fill="#d9b45a">M</text>
+</svg>
