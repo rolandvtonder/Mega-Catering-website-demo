@@ -79,4 +79,5 @@ export const quote = {
   },
 }
 
-export const useQuote = () => useSyncExternalStore(quote.subscribe, quote.get)
+/* At build time (prerendering) there is no browser storage, so the list is empty. */
+export const useQuote = () => useSyncExternalStore(quote.subscribe, quote.get, () => EMPTY)

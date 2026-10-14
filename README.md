@@ -28,3 +28,11 @@ npm run dev
 - **Wording, services, hire items, phone number** — `src/content.ts`.
 
 Every push to `main` rebuilds and publishes the site to GitHub Pages.
+
+## Search engines
+
+`npm run build` prerenders every page to plain HTML (so Google reads the full
+content without running JavaScript) and writes `sitemap.xml` and `robots.txt`.
+
+When a custom domain is connected, change `SITE_URL` (and `BASE_PATH` to `/`)
+in `.github/workflows/pages.yml` so the sitemap and canonical links use it.

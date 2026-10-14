@@ -25,7 +25,12 @@ jobs:
           cache: npm
       - run: npm ci
       # Pages serves a project site from /<repo>/, so build with that base.
-      - run: npx vite build --base=/${{ github.event.repository.name }}/
+      # SITE_URL is the public address used for the sitemap and canonical links;
+      # change it to the real domain once one is connected.
+      - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -7,19 +7,23 @@ import { fileURLToPath } from 'node:url'
    so the URLs are clean (/gallery/) and work on any static host. */
 const page = (p: string) => fileURLToPath(new URL(p, import.meta.url))
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
+  /* "/" locally; GitHub Pages serves a project site from /<repo>/ (set in the workflow) */
+  base: process.env.BASE_PATH || '/',
   appType: 'mpa',
   plugins: [react(), tailwindcss()],
-  build: {
-    rollupOptions: {
-      input: {
-        home: page('./index.html'),
-        services: page('./services/index.html'),
-        about: page('./about/index.html'),
-        gallery: page('./gallery/index.html'),
-        hire: page('./hire/index.html'),
-        quote: page('./quote/index.html'),
+  build: isSsrBuild
+    ? {}
+    : {
+        rollupOptions: {
+          input: {
+            home: page('./index.html'),
+            services: page('./services/index.html'),
+            about: page('./about/index.html'),
+            gallery: page('./gallery/index.html'),
+            hire: page('./hire/index.html'),
+            quote: page('./quote/index.html'),
+          },
+        },
       },
-    },
-  },
-})
+}))

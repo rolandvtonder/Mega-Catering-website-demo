@@ -381,6 +381,8 @@ export default function Stage() {
                     }}
                   >
                     {w}
+                    {/* a trailing space so the heading reads as words, not "We bringbrightness" */}
+                    {i < 2 && ' '}
                   </span>
                 </Mask>
               ))}
